@@ -1,3 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Biekie Bos Family Restaurant Meyerton</title>
+  <meta name="description" content="View the Biekie Bos menu — great food, generous portions and well-priced meals for families in Meyerton. Download our menu PDF or view online." />
+  <meta property="og:title" content="Biekie Bos Menu | Meyerton Family Restaurant" />
+  <meta property="og:description" content="Generous, delicious meals the whole family will love. View or download the Biekie Bos menu." />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Menu-only CSS safety net (prevents flipbook from taking over the page) -->
+  <style>
+    .menu-flip-wrap{ max-width:1100px; margin:0 auto; }
+    .menu-flip{
+      width:100%;
+      height:min(78vh, 860px);
+      border-radius:24px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid var(--bb-sand);
+      box-shadow:0 10px 34px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" role="banner">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
+      <img src="assets/img/logo.png" alt="Biekie Bos logo" onerror="this.style.display='none'" />
+      <span class="sr-only">Biekie Bos</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="events.html">Events &amp; Parties</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="tel:+27163631602" class="nav-call" aria-label="Call Biekie Bos">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        016 363 1602
+      </a>
+      <a href="events.html" class="btn btn-primary">Plan a Party</a>
+    </div>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="events.html">Events &amp; Parties</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:+27163631602" class="btn btn-primary">📞 016 363 1602</a>
+  </nav>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" aria-label="Biekie Bos menu">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Home</a> › Menu</p>
+    <h1>Our Menu</h1>
+    <p>Generous portions, great flavours and well-priced meals the whole family will love.</p>
+  </div>
+</section>
+
 <!-- ===== MENU SECTION (Flipbook) ===== -->
 <section class="section section-alt" aria-labelledby="menu-heading">
   <div class="container">
@@ -7,7 +92,6 @@
       <p>Tap or click to flip through the menu. You can also download the PDF.</p>
     </div>
 
-    <!-- Flipbook wrapper -->
     <div class="menu-flip-wrap">
       <div id="menuFlip" class="menu-flip" aria-label="Biekie Bos menu flipbook"></div>
     </div>
@@ -29,7 +113,9 @@
   <div class="container text-center">
     <span class="section-label">Visit Us</span>
     <h2 id="menu-cta-heading">Ready to Eat?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">Call to book a table or just walk in during our opening hours. We're open every day of the week from 8am to 5pm.</p>
+    <p style="max-width:500px; margin:0 auto 2rem;">
+      Call to book a table or just walk in during our opening hours. We're open every day of the week from 8am to 5pm.
+    </p>
     <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
       <a href="tel:+27163631602" class="btn btn-primary">📞 Book a Table: 016 363 1602</a>
       <a href="events.html" class="btn btn-dark">🎉 Plan a Party</a>
@@ -44,7 +130,7 @@
       <div class="footer-brand">
         <a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
           <img src="assets/img/logo.png" alt="Biekie Bos" onerror="this.style.display='none'" />
-          Biekie Bos
+          <span class="sr-only">Biekie Bos</span>
         </a>
         <p>A relaxed farm-style family destination in Meyerton, Vaal Triangle. Good food, open space, kids entertainment and celebrations done right.</p>
         <div class="social-links" style="margin-top:1.25rem;">
@@ -92,23 +178,30 @@
 </footer>
 
 <a href="tel:+27163631602" class="float-call" aria-label="Call Biekie Bos restaurant">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+  </svg>
   Call Restaurant
 </a>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<!-- ===== SCRIPTS (order matters) ===== -->
 
-<!-- PageFlip library -->
+<!-- 1) PageFlip library - must match your repo filename -->
 <script src="assets/vendor/pageflip/page-flip.browser.js"></script>
 
-<!-- Init flipbook -->
+<!-- 2) Init flipbook -->
 <script>
   (function () {
-    const el = document.getElementById('menuFlip');
-    if (!el || !window.St || !St.PageFlip) return;
+    const el = document.getElementById("menuFlip");
+    if (!el) return;
+
+    if (!window.St || !St.PageFlip) {
+      console.error("PageFlip library not found. Check script path: assets/vendor/pageflip/page-flip.browser.js");
+      return;
+    }
 
     const pages = Array.from({ length: 13 }, (_, i) => {
-      const n = String(i + 1).padStart(2, '0');
+      const n = String(i + 1).padStart(2, "0");
       return `assets/menu/pages/menu-${n}.jpg`;
     });
 
@@ -117,9 +210,9 @@
       height: 1200,
       size: "stretch",
       minWidth: 320,
-      maxWidth: 1200,
+      maxWidth: 1100,
       minHeight: 420,
-      maxHeight: 1600,
+      maxHeight: 1500,
       autoSize: true,
       showCover: false,
       mobileScrollSupport: false
@@ -127,13 +220,18 @@
 
     pageFlip.loadFromImages(pages);
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') pageFlip.flipNext();
-      if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") pageFlip.flipNext();
+      if (e.key === "ArrowLeft") pageFlip.flipPrev();
     });
   })();
 </script>
 
+<!-- 3) Site JS -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>

@@ -396,3 +396,23 @@ const pages = [
 
   updateUI();
 })();
+
+// Reviews slider arrows
+(function(){
+  const slider = document.getElementById('reviewsSlider');
+  if(!slider) return;
+
+  const prevBtn = document.querySelector('.reviews-nav.prev');
+  const nextBtn = document.querySelector('.reviews-nav.next');
+
+  function scrollByCard(dir){
+    const firstCard = slider.querySelector('.review-card');
+    if(!firstCard) return;
+    const gap = 20; // close enough; not critical
+    const amount = firstCard.getBoundingClientRect().width + gap;
+    slider.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => scrollByCard(-1));
+  nextBtn && nextBtn.addEventListener('click', () => scrollByCard(1));
+})();

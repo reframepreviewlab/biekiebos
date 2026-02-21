@@ -271,3 +271,119 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox(".gallery-full-grid");
   initLightbox(".gallery-grid");
 })();
+
+/* ===== MENU FLIPBOOK (Vanilla JS) ===== */
+(function initMenuFlipbook(){
+  const flipbookEl = document.getElementById('flipbook');
+  if(!flipbookEl) return;
+
+  // IMPORTANT: list your page images here (match your files exactly)
+  // Add/remove entries based on how many pages your menu has.
+  const pages = [
+    "assets/menu/pages/menu-01.jpg",
+    "assets/menu/pages/menu-02.jpg",
+    "assets/menu/pages/menu-03.jpg",
+    "assets/menu/pages/menu-04.jpg"
+  ];
+
+  const prevBtn = document.getElementById('fbPrev');
+  const nextBtn = document.getElementById('fbNext');
+  const pageNumEl = document.getElementById('fbPage');
+  const totalEl = document.getElementById('fbTotal');
+
+  totalEl.textContent = String(pages.length);
+
+  // Build pages (stacked)
+  flipbookEl.innerHTML = "";
+
+  // Click zones overlay
+  const zones = document.createElement('div');
+  zones.className = "fb-clickzones";
+  zones.innerHTML = `
+    <div class="fb-zone left" aria-label="Previous"></div>
+    <div class="fb-zone right" aria-label="Next"></div>
+  `;
+  flipbookEl.appendChild(zones);
+
+  // Create page elements (last page at bottom, first page on top)
+  const pageEls = pages.map((src, i) => {
+    const page = document.createElement('div');
+    page.className = 'fb-page';
+    page.style.zIndex = String(pages.length - i);
+
+    const front = document.createElement('div');
+    front.className = 'fb-face fb-front';
+    front.style.backgroundImage = `url("${src}")`;
+
+    const back = document.createElement('div');
+    back.className = 'fb-face fb-back';
+    back.style.backgroundImage = `url("${src}")`;
+
+    page.appendChild(front);
+    page.appendChild(back);
+    flipbookEl.appendChild(page);
+    return page;
+  });
+
+  // State: current page index (0-based). 0 means at start.
+  let current = 0;
+
+  function updateUI(){
+    pageNumEl.textContent = String(Math.min(current + 1, pages.length));
+    prevBtn.disabled = (current === 0);
+    nextBtn.disabled = (current === pages.length - 1);
+  }
+
+  function goNext(){
+    if(current >= pages.length - 1) return;
+
+    // Flip current page
+    pageEls[current].classList.add('is-flipped');
+    pageEls[current].style.zIndex = String(current + 1); // send behind
+
+    current++;
+    updateUI();
+  }
+
+  function goPrev(){
+    if(current <= 0) return;
+
+    current--;
+    // Unflip previous page
+    pageEls[current].classList.remove('is-flipped');
+    pageEls[current].style.zIndex = String(pages.length - current);
+    updateUI();
+  }
+
+  // Buttons
+  prevBtn.addEventListener('click', goPrev);
+  nextBtn.addEventListener('click', goNext);
+
+  // Click zones
+  zones.querySelector('.fb-zone.right').addEventListener('click', goNext);
+  zones.querySelector('.fb-zone.left').addEventListener('click', goPrev);
+
+  // Keyboard
+  flipbookEl.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+    if(e.key === 'ArrowLeft')  { e.preventDefault(); goPrev(); }
+  });
+
+  // Basic touch swipe
+  let startX = null;
+  flipbookEl.addEventListener('touchstart', (e) => {
+    startX = e.touches?.[0]?.clientX ?? null;
+  }, {passive:true});
+
+  flipbookEl.addEventListener('touchend', (e) => {
+    if(startX == null) return;
+    const endX = e.changedTouches?.[0]?.clientX ?? null;
+    if(endX == null) return;
+    const dx = endX - startX;
+    if(Math.abs(dx) < 40) return; // swipe threshold
+    if(dx < 0) goNext(); else goPrev();
+    startX = null;
+  }, {passive:true});
+
+  updateUI();
+})();

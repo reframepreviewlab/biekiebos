@@ -1376,3 +1376,9 @@ html.bb-lb-lock, html.bb-lb-lock body{
 .menu-flip *{
   max-width: 100%;
 }
+
+/* ===== MENU DOWNLOAD BUTTON ===== */
+.menu-download{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}

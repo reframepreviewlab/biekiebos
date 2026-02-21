@@ -320,6 +320,38 @@ p { color: var(--bb-taupe); }
 .card h3 { margin-bottom: 0.5rem; }
 .card p { font-size: 0.95rem; }
 
+/* ===== WHY FAMILIES LOVE US: force 2x3 grid + aligned cards ===== */
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 across */
+  gap: 1.5rem;
+  align-items: stretch; /* makes all cards same height per row */
+}
+
+/* Make each card fill its grid cell height */
+.cards-grid .card{
+  height: 100%;
+}
+
+/* Optional: helps keep content spacing consistent */
+.cards-grid .card p{
+  margin-top: 0.75rem;
+}
+
+/* Tablet: 2 across */
+@media (max-width: 1024px){
+  .cards-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: 1 across */
+@media (max-width: 640px){
+  .cards-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- SECTION HEADER ---- */
 .section-header { margin-bottom: 3rem; }
 .section-header.text-center { max-width: 600px; margin-left: auto; margin-right: auto; }

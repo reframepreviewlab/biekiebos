@@ -279,12 +279,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // IMPORTANT: list your page images here (match your files exactly)
   // Add/remove entries based on how many pages your menu has.
-  const pages = [
-    "assets/menu/pages/menu-01.jpg",
-    "assets/menu/pages/menu-02.jpg",
-    "assets/menu/pages/menu-03.jpg",
-    "assets/menu/pages/menu-04.jpg"
-  ];
+const pages = [
+  "assets/menu/pages/menu-01.jpg",
+  "assets/menu/pages/menu-02.jpg",
+  "assets/menu/pages/menu-03.jpg",
+  "assets/menu/pages/menu-04.jpg",
+  "assets/menu/pages/menu-05.jpg",
+  "assets/menu/pages/menu-06.jpg",
+  "assets/menu/pages/menu-07.jpg",
+  "assets/menu/pages/menu-08.jpg",
+  "assets/menu/pages/menu-09.jpg",
+  "assets/menu/pages/menu-10.jpg",
+  "assets/menu/pages/menu-11.jpg",
+  "assets/menu/pages/menu-12.jpg",
+  "assets/menu/pages/menu-13.jpg"
+];
 
   const prevBtn = document.getElementById('fbPrev');
   const nextBtn = document.getElementById('fbNext');

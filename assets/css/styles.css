@@ -73,7 +73,7 @@ ul { list-style: none; }
 
 /* Footer logo slightly smaller */
 .site-footer .footer-logo img{
-  height:26px;   /* smaller logo */
+  height:34px;   /* smaller logo */
   width:auto;
   display:block;
 }

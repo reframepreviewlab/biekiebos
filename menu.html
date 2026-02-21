@@ -64,43 +64,41 @@
 <!-- ===== MENU SECTION ===== -->
 <section class="section" aria-labelledby="menu-heading">
   <div class="container">
-    <div class="section-header" style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
-      <div>
-        <span class="section-label">Food &amp; Drinks</span>
-        <h2 id="menu-heading">View Our Current Menu</h2>
-        <p>Our menu is updated regularly. For the most current items and pricing, please see the menu below or call us directly on <a href="tel:+27163631602" style="color:var(--bb-taupe); font-weight:700;">016 363 1602</a>.</p>
-      </div>
-      <a href="assets/menu/menu.pdf" download class="btn btn-primary" aria-label="Download Biekie Bos menu as PDF">
-        ⬇ Download Menu (PDF)
+    <div class="section-header text-center">
+      <span class="section-label">Our Menu</span>
+      <h2 id="menu-heading">Explore Our Menu</h2>
+      <p>
+        From generous family favourites to refreshing drinks and legendary milkshakes —
+        view our full menu below.
+      </p>
+    </div>
+
+    <!-- PDF BUTTON -->
+    <div style="text-align:center; margin-bottom:2rem;">
+      <a class="btn btn-primary"
+         href="assets/pdf/menu.pdf"
+         target="_blank"
+         rel="noopener">
+        View / Download Full Menu (PDF)
       </a>
     </div>
 
-    <div class="menu-embed-wrapper">
-      <object
-        class="menu-pdf-object"
-        data="assets/menu/menu.pdf"
-        type="application/pdf"
-        aria-label="Biekie Bos menu document">
-        <iframe
-          src="assets/menu/menu.pdf"
-          title="Biekie Bos menu"
-          style="width:100%; min-height:80vh; border:none;"
-          aria-label="Biekie Bos menu PDF viewer">
-          <p>Your browser cannot display this PDF. <a href="assets/menu/menu.pdf">Download the menu PDF</a> to view it.</p>
-        </iframe>
-      </object>
-      <div class="menu-fallback" aria-label="Menu image fallback">
-        <p style="margin-bottom:1.5rem; color:var(--bb-taupe);">Unable to load the PDF viewer. You can view the menu image below or download the PDF.</p>
-        <img src="assets/menu/menu.jpg" alt="Biekie Bos menu" />
-        <div style="margin-top:1.5rem;">
-          <a href="assets/menu/menu.pdf" download class="btn btn-primary">⬇ Download Menu (PDF)</a>
-        </div>
-      </div>
+    <!-- PDF PREVIEW EMBED -->
+    <div style="
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--bb-sand);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    ">
+      <iframe
+        src="assets/pdf/menu.pdf"
+        width="100%"
+        height="900"
+        style="border:0;"
+        title="Biekie Bos Menu PDF">
+      </iframe>
     </div>
 
-    <div class="menu-note">
-      <strong>Menu update instructions (for staff):</strong> To update the menu, replace <code>assets/menu/menu.pdf</code> with the new PDF file (keep the same filename). Replace <code>assets/menu/menu.jpg</code> for the fallback image.
-    </div>
   </div>
 </section>
 

@@ -1189,3 +1189,15 @@ html.bb-lb-lock, html.bb-lb-lock body{
   object-fit: cover;
   display: block;
 }
+
+/* ===== NAV LOGO IMAGE ===== */
+.nav-logo img{
+  height: 42px;   /* Adjust if needed */
+  width: auto;
+  display: block;
+}
+
+.nav-logo{
+  display: flex;
+  align-items: center;
+}

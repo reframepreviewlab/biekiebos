@@ -87,49 +87,6 @@
   </div>
 </section>
 
-<!-- PageFlip library -->
-<script src="assets/vendor/pageflip/page-flip.browser.min.js"></script>
-
-<!-- Init -->
-<script>
-  (function(){
-    const el = document.getElementById('menuFlip');
-    if(!el) return;
-
-    // Build the 13 image URLs
-    const pages = Array.from({length: 13}, (_, i) => {
-      const n = String(i + 1).padStart(2, '0');
-      return `assets/menu/pages/menu-${n}.jpg`;
-    });
-
-    // Create flipbook
-    const pageFlip = new St.PageFlip(el, {
-      width: 900,
-      height: 1200,
-      size: "stretch",
-      minWidth: 320,
-      maxWidth: 1200,
-      minHeight: 420,
-      maxHeight: 1600,
-      autoSize: true,
-      showCover: false,
-      mobileScrollSupport: false
-    });
-
-    pageFlip.loadFromImages(pages);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') pageFlip.flipNext();
-      if (e.key === 'ArrowLeft') pageFlip.flipPrev();
-    });
-
-    // Prevent clicks inside flipbook from closing any mobile menu overlay handlers
-    el.addEventListener('click', (e) => e.stopPropagation(), true);
-    el.addEventListener('touchstart', (e) => e.stopPropagation(), {passive:true, capture:true});
-  })();
-</script>
-
 <!-- ===== CTA ===== -->
 <section class="section section-alt" aria-labelledby="menu-cta-heading">
   <div class="container text-center">

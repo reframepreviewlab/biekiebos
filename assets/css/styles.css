@@ -42,6 +42,40 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
+/* ===== Visually hidden (keeps text for SEO/screen readers) ===== */
+.sr-only{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
+
+/* ===== Logo sizing + prevent header from stretching ===== */
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:0; /* no space between logo and hidden text */
+  line-height:1;
+}
+
+.nav-logo img{
+  height:44px;          /* header logo size */
+  width:auto;
+  max-width:240px;      /* safety clamp */
+  object-fit:contain;
+  display:block;
+}
+
+/* Footer logo slightly smaller */
+.site-footer .nav-logo img{
+  height:34px;
+}
+
 /* ---- TYPOGRAPHY ---- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);

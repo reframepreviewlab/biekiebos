@@ -62,46 +62,73 @@
 </section>
 
 <!-- ===== MENU SECTION (Flipbook) ===== -->
-<section class="section" aria-labelledby="menu-heading">
+<section class="section section-alt" aria-labelledby="menu-heading">
   <div class="container">
     <div class="section-header text-center">
-      <span class="section-label">Our Menu</span>
-      <h2 id="menu-heading">Explore Our Menu</h2>
-      <p>
-        Flip through our menu below, or download the PDF for easy sharing.
-      </p>
+      <span class="section-label">Menu</span>
+      <h2 id="menu-heading">Restaurant Menu</h2>
+      <p>Tap or click to flip through the menu. You can also download the PDF.</p>
     </div>
 
-    <!-- Actions -->
-    <div class="menu-actions">
-      <a class="btn btn-primary"
-         href="assets/pdf/menu.pdf"
-         target="_blank"
-         rel="noopener">
-        View / Download Full Menu (PDF)
+    <!-- Flipbook wrapper -->
+    <div class="menu-flip-wrap">
+      <div id="menuFlip" class="menu-flip" aria-label="Biekie Bos menu flipbook"></div>
+    </div>
+
+    <div class="text-center" style="margin-top:1rem;">
+      <a class="btn btn-outline" href="assets/menu/menu.pdf" target="_blank" rel="noopener">
+        Download PDF
       </a>
     </div>
 
-    <!-- Flipbook -->
-    <div class="flipbook-wrap" aria-label="Menu flipbook">
-      <div class="flipbook-toolbar">
-        <button class="btn btn-outline" type="button" id="fbPrev" aria-label="Previous page">← Prev</button>
-        <div class="flipbook-status" aria-live="polite">
-          Page <span id="fbPage">1</span> of <span id="fbTotal">1</span>
-        </div>
-        <button class="btn btn-outline" type="button" id="fbNext" aria-label="Next page">Next →</button>
-      </div>
-
-      <div class="flipbook" id="flipbook" tabindex="0" aria-label="Flipbook pages">
-        <!-- JS will inject pages here -->
-      </div>
-
-      <div class="flipbook-hint">
-        Tip: Click the right side to flip forward • Left side to go back • Use arrow keys on desktop
-      </div>
-    </div>
+    <p class="text-center" style="margin-top:0.75rem; font-size:0.9rem; opacity:0.8;">
+      Tip: Click/tap the right side to flip forward • left side to go back • use arrow keys on desktop
+    </p>
   </div>
 </section>
+
+<!-- PageFlip library -->
+<script src="assets/vendor/pageflip/page-flip.browser.min.js"></script>
+
+<!-- Init -->
+<script>
+  (function(){
+    const el = document.getElementById('menuFlip');
+    if(!el) return;
+
+    // Build the 13 image URLs
+    const pages = Array.from({length: 13}, (_, i) => {
+      const n = String(i + 1).padStart(2, '0');
+      return `assets/menu/pages/menu-${n}.jpg`;
+    });
+
+    // Create flipbook
+    const pageFlip = new St.PageFlip(el, {
+      width: 900,
+      height: 1200,
+      size: "stretch",
+      minWidth: 320,
+      maxWidth: 1200,
+      minHeight: 420,
+      maxHeight: 1600,
+      autoSize: true,
+      showCover: false,
+      mobileScrollSupport: false
+    });
+
+    pageFlip.loadFromImages(pages);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') pageFlip.flipNext();
+      if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    });
+
+    // Prevent clicks inside flipbook from closing any mobile menu overlay handlers
+    el.addEventListener('click', (e) => e.stopPropagation(), true);
+    el.addEventListener('touchstart', (e) => e.stopPropagation(), {passive:true, capture:true});
+  })();
+</script>
 
 <!-- ===== CTA ===== -->
 <section class="section section-alt" aria-labelledby="menu-cta-heading">

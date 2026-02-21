@@ -61,32 +61,6 @@
   </div>
 </section>
 
-<!-- ===== MENU SECTION (Flipbook) ===== -->
-<section class="section section-alt" aria-labelledby="menu-heading">
-  <div class="container">
-    <div class="section-header text-center">
-      <span class="section-label">Menu</span>
-      <h2 id="menu-heading">Restaurant Menu</h2>
-      <p>Tap or click to flip through the menu. You can also download the PDF.</p>
-    </div>
-
-    <!-- Flipbook wrapper -->
-    <div class="menu-flip-wrap">
-      <div id="menuFlip" class="menu-flip" aria-label="Biekie Bos menu flipbook"></div>
-    </div>
-
-    <div class="text-center" style="margin-top:1rem;">
-      <a class="btn btn-outline" href="assets/menu/menu.pdf" target="_blank" rel="noopener">
-        Download PDF
-      </a>
-    </div>
-
-    <p class="text-center" style="margin-top:0.75rem; font-size:0.9rem; opacity:0.8;">
-      Tip: Click/tap the right side to flip forward • left side to go back • use arrow keys on desktop
-    </p>
-  </div>
-</section>
-
 <!-- ===== CTA ===== -->
 <section class="section section-alt" aria-labelledby="menu-cta-heading">
   <div class="container text-center">
@@ -159,3 +133,169 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Biekie Bos Family Restaurant Meyerton</title>
+  <meta name="description" content="View the Biekie Bos menu — great food, generous portions and well-priced meals for families in Meyerton. Download our menu PDF or view online." />
+  <meta property="og:title" content="Biekie Bos Menu | Meyerton Family Restaurant" />
+  <meta property="og:description" content="Generous, delicious meals the whole family will love. View or download the Biekie Bos menu." />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" role="banner">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
+      <img src="assets/img/logo.png" alt="Biekie Bos logo" onerror="this.style.display='none'" />
+      Biekie Bos
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Events &amp; Parties</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+27163631602" class="nav-call" aria-label="Call Biekie Bos">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        016 363 1602
+      </a>
+      <a href="events.html" class="btn btn-primary">Plan a Party</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="events.html">Events &amp; Parties</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:+27163631602" class="btn btn-primary">📞 016 363 1602</a>
+  </nav>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" aria-label="Biekie Bos menu">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Home</a> › Menu</p>
+    <h1>Our Menu</h1>
+    <p>Generous portions, great flavours and well-priced meals the whole family will love.</p>
+  </div>
+</section>
+
+<!-- ===== MENU SECTION (Flipbook) ===== -->
+<section class="section section-alt" aria-labelledby="menu-heading">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Menu</span>
+      <h2 id="menu-heading">Restaurant Menu</h2>
+      <p>Tap or click to flip through the menu. You can also download the PDF.</p>
+    </div>
+
+    <!-- Flipbook wrapper -->
+    <div class="menu-flip-wrap">
+      <div id="menuFlip" class="menu-flip" aria-label="Biekie Bos menu flipbook"></div>
+    </div>
+
+    <div class="text-center" style="margin-top:1rem;">
+      <a class="btn btn-outline" href="assets/menu/menu.pdf" target="_blank" rel="noopener">
+        Download PDF
+      </a>
+    </div>
+
+    <p class="text-center" style="margin-top:0.75rem; font-size:0.9rem; opacity:0.8;">
+      Tip: Click/tap the right side to flip forward • left side to go back • use arrow keys on desktop
+    </p>
+  </div>
+</section>
+  
+<!-- ===== CTA ===== -->
+<section class="section section-alt" aria-labelledby="menu-cta-heading">
+  <div class="container text-center">
+    <span class="section-label">Visit Us</span>
+    <h2 id="menu-cta-heading">Ready to Eat?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Call to book a table or just walk in during our opening hours. We're open every day of the week from 8am to 5pm.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="tel:+27163631602" class="btn btn-primary">📞 Book a Table: 016 363 1602</a>
+      <a href="events.html" class="btn btn-dark">🎉 Plan a Party</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
+          <img src="assets/img/logo.png" alt="Biekie Bos" onerror="this.style.display='none'" />
+          Biekie Bos
+        </a>
+        <p>A relaxed farm-style family destination in Meyerton, Vaal Triangle. Good food, open space, kids entertainment and celebrations done right.</p>
+        <div class="social-links" style="margin-top:1.25rem;">
+          <a href="https://www.facebook.com/BiekieBos/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Biekie Bos on Facebook">f</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Menu</a>
+        <a href="events.html">Events &amp; Parties</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+27163631602">📞 016 363 1602</a>
+        <a href="tel:+27832680984">🎉 Andre: 083 268 0984</a>
+        <a href="mailto:info@biekiebos.co.za">✉ info@biekiebos.co.za</a>
+        <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.5;">Donald Rd, Glen Donald AH,<br>Meyerton, 1929</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul class="hours-list">
+          <li><span>Monday</span><span>8am – 5pm</span></li>
+          <li><span>Tuesday</span><span>8am – 5pm</span></li>
+          <li><span>Wednesday</span><span>8am – 5pm</span></li>
+          <li><span>Thursday</span><span>8am – 5pm</span></li>
+          <li><span>Friday</span><span>8am – 5pm</span></li>
+          <li><span>Saturday</span><span>8am – 5pm</span></li>
+          <li><span>Sunday</span><span>8am – 5pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Biekie Bos. All rights reserved.</p>
+      <p>Donald Rd, Glen Donald AH, Meyerton, 1929, South Africa</p>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+27163631602" class="float-call" aria-label="Call Biekie Bos restaurant">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Call Restaurant
+</a>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>

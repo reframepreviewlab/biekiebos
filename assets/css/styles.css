@@ -72,8 +72,10 @@ ul { list-style: none; }
 }
 
 /* Footer logo slightly smaller */
-.site-footer .nav-logo img{
-  height:18px;
+.site-footer .footer-logo img{
+  height:26px;   /* smaller logo */
+  width:auto;
+  display:block;
 }
 
 /* ---- TYPOGRAPHY ---- */

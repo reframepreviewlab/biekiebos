@@ -467,14 +467,32 @@ p { color: var(--bb-taupe); }
 }
 
 /* ---- GALLERY GRID ---- */
-/* Gallery: dense packing to reduce gaps */
 .gallery-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  grid-auto-flow: dense; /* key: fills holes */
-  grid-auto-rows: 180px; /* adjust 160–220 to taste */
+  grid-auto-flow: dense; /* fills holes */
+  grid-auto-rows: 180px; /* adjust 160–220 */
 }
+
+/* Base tile */
+.gallery-item{
+  border-radius: 18px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Layout helpers for the exact collage look --- */
+.gallery-item.span-2c{ grid-column: span 2; }   /* wide */
+.gallery-item.span-2r{ grid-row: span 2; }      /* tall */
+.gallery-item.span-2x2{ grid-column: span 2; grid-row: span 2; } /* big block */
 
 /* Base tile */
 .gallery-item{

@@ -1216,3 +1216,152 @@ html.bb-lb-lock, html.bb-lb-lock body{
   background: #fff;
   box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
+
+/* =========================================
+   PATCH — FIX BROKEN CSS + GALLERY + MENU
+   Paste at END of styles.css
+   ========================================= */
+
+/* 1) SAFETY: close any unclosed media blocks above (common cause of "page out of whack") */
+@media (max-width: 480px) {
+  /* If you already had rules here, they still apply above.
+     This block just ensures the file is not left unclosed. */
+}
+
+/* 2) GALLERY PREVIEW GRID (homepage preview collage) */
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  grid-auto-flow: dense;
+  grid-auto-rows: 180px;
+}
+
+.gallery-item{
+  border-radius: 18px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item.span-2c{ grid-column: span 2; }
+.gallery-item.span-2r{ grid-row: span 2; }
+.gallery-item.span-2x2{ grid-column: span 2; grid-row: span 2; }
+
+/* Responsive preview */
+@media (max-width: 768px){
+  .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px){
+  .gallery-grid{ grid-template-columns: 1fr; }
+  .gallery-item.span-2c,
+  .gallery-item.span-2r,
+  .gallery-item.span-2x2{
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* 3) GALLERY FULL PAGE GRID (gallery.html – 20 images, fills screen more) */
+.gallery-full-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+  grid-auto-flow:dense;
+  grid-auto-rows:220px;
+  margin-top: 2rem;
+}
+
+.gallery-full-item{
+  border-radius:18px;
+  overflow:hidden;
+  cursor:zoom-in;
+  background: #eee;
+}
+
+.gallery-full-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* helpers */
+.gallery-full-item.span-2c{ grid-column: span 2; }
+.gallery-full-item.span-2r{ grid-row: span 2; }
+.gallery-full-item.span-2x2{ grid-column: span 2; grid-row: span 2; }
+
+@media (max-width:1024px){
+  .gallery-full-grid{ grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width:720px){
+  .gallery-full-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:180px; }
+}
+@media (max-width:480px){
+  .gallery-full-grid{ grid-template-columns:1fr; grid-auto-rows:220px; }
+  .gallery-full-item.span-2c,
+  .gallery-full-item.span-2r,
+  .gallery-full-item.span-2x2{
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* 4) SPLIT IMAGE FIX (for the big tiles on Events/About sections) */
+.split-img{
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.split-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 5) NAV LOGO IMAGE (keeps logo aligned nicely) */
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap: 0.6rem;
+}
+
+.nav-logo img{
+  height: 42px;
+  width: auto;
+  display:block;
+  border-radius: 6px;
+}
+
+/* 6) MENU FLIPBOOK CONTAINER (PageFlip.js / St.PageFlip target) */
+.menu-flip-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu-flip{
+  width: 100%;
+  height: min(75vh, 780px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--bb-sand);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+}
+
+/* 7) IMPORTANT: prevent old custom flipbook styles from hijacking the PageFlip library */
+.flipbook,
+.fb-page,
+.fb-face,
+.fb-back,
+.fb-clickzones,
+.fb-zone{
+  all: unset;
+}

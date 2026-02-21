@@ -1201,3 +1201,18 @@ html.bb-lb-lock, html.bb-lb-lock body{
   display: flex;
   align-items: center;
 }
+
+/* ===== MENU FLIPBOOK ===== */
+.menu-flip-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu-flip{
+  width: 100%;
+  height: min(75vh, 780px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+}

@@ -140,3 +140,135 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuFallback();
   initScrollAnimations();
 });
+
+// ===============================
+// Gallery Lightbox (Vanilla JS)
+// Works for: .gallery-full-grid and .gallery-grid
+// ===============================
+(function () {
+  function initLightbox(selector) {
+    const container = document.querySelector(selector);
+    if (!container) return;
+
+    const images = Array.from(container.querySelectorAll("img"));
+    if (!images.length) return;
+
+    // Build overlay once
+    let overlay = document.getElementById("bb-lightbox");
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.id = "bb-lightbox";
+      overlay.innerHTML = `
+        <div class="bb-lb-backdrop" data-close="true"></div>
+        <div class="bb-lb-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+          <button class="bb-lb-btn bb-lb-close" type="button" aria-label="Close (Esc)" data-close="true">×</button>
+          <button class="bb-lb-btn bb-lb-prev" type="button" aria-label="Previous image" data-prev="true">‹</button>
+          <figure class="bb-lb-figure">
+            <img class="bb-lb-img" alt="">
+            <figcaption class="bb-lb-cap"></figcaption>
+          </figure>
+          <button class="bb-lb-btn bb-lb-next" type="button" aria-label="Next image" data-next="true">›</button>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+    }
+
+    const lbImg = overlay.querySelector(".bb-lb-img");
+    const lbCap = overlay.querySelector(".bb-lb-cap");
+    const btnPrev = overlay.querySelector("[data-prev]");
+    const btnNext = overlay.querySelector("[data-next]");
+
+    let index = 0;
+    let startX = 0;
+    let startY = 0;
+
+    function open(i) {
+      index = i;
+      const img = images[index];
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || "Gallery image";
+      lbCap.textContent = img.alt || "";
+      overlay.classList.add("is-open");
+      document.documentElement.classList.add("bb-lb-lock");
+    }
+
+    function close() {
+      overlay.classList.remove("is-open");
+      document.documentElement.classList.remove("bb-lb-lock");
+      // prevent "flash" of previous image while closing/opening fast
+      lbImg.src = "";
+      lbCap.textContent = "";
+    }
+
+    function prev() {
+      index = (index - 1 + images.length) % images.length;
+      open(index);
+    }
+
+    function next() {
+      index = (index + 1) % images.length;
+      open(index);
+    }
+
+    // Click image to open
+    images.forEach((img, i) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", (e) => {
+        e.preventDefault();
+        open(i);
+      });
+    });
+
+    // Overlay controls
+    overlay.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.getAttribute && t.getAttribute("data-close") === "true") close();
+      if (t && t.getAttribute && t.getAttribute("data-prev") === "true") prev();
+      if (t && t.getAttribute && t.getAttribute("data-next") === "true") next();
+    });
+
+    // Keyboard
+    document.addEventListener("keydown", (e) => {
+      if (!overlay.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+
+    // Touch swipe (mobile)
+    overlay.addEventListener(
+      "touchstart",
+      (e) => {
+        if (!overlay.classList.contains("is-open")) return;
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+      },
+      { passive: true }
+    );
+
+    overlay.addEventListener(
+      "touchend",
+      (e) => {
+        if (!overlay.classList.contains("is-open")) return;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+
+        // horizontal swipe threshold
+        if (Math.abs(dx) > 50 && Math.abs(dy) < 80) {
+          if (dx > 0) prev();
+          else next();
+        }
+      },
+      { passive: true }
+    );
+
+    // Expose close when clicking backdrop image area
+    overlay._bbClose = close;
+  }
+
+  // Init on full gallery page + preview grid (if present)
+  initLightbox(".gallery-full-grid");
+  initLightbox(".gallery-grid");
+})();

@@ -86,7 +86,6 @@ function initPartyForm() {
     const body = encodeURIComponent(
       `Name: ${name}\nPhone: ${phone}\nPreferred Date: ${date}\nNumber of Kids: ${kids}\nNumber of Adults: ${adults}\nNotes: ${notes}`
     );
-    window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
   });
 }
 

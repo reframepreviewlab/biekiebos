@@ -513,6 +513,100 @@ p { color: var(--bb-taupe); }
 .gallery-item.tall{ grid-row: span 2; }
 .gallery-item.wide{ grid-column: span 2; }
 
+/* ===== Lightbox ===== */
+#bb-lightbox{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+#bb-lightbox.is-open{
+  display: block;
+}
+
+.bb-lb-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+}
+
+.bb-lb-dialog{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  align-items: center;
+  padding: 24px;
+}
+
+.bb-lb-figure{
+  margin: 0;
+  max-height: calc(100vh - 48px);
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.bb-lb-img{
+  max-width: min(1100px, 92vw);
+  max-height: 74vh;
+  width: auto;
+  height: auto;
+  border-radius: 14px;
+  background: #111;
+}
+
+.bb-lb-cap{
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: min(1100px, 92vw);
+}
+
+.bb-lb-btn{
+  appearance: none;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+  user-select: none;
+}
+
+.bb-lb-btn:hover{
+  background: rgba(255,255,255,0.18);
+}
+
+.bb-lb-close{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 34px;
+  width: 52px;
+  height: 52px;
+}
+
+html.bb-lb-lock, html.bb-lb-lock body{
+  overflow: hidden;
+}
+
+@media (max-width: 720px){
+  .bb-lb-dialog{
+    grid-template-columns: 52px 1fr 52px;
+    padding: 16px;
+  }
+  .bb-lb-img{
+    max-height: 72vh;
+  }
+}
+
 /* ---- HOW IT WORKS ---- */
 .steps-row {
   display: grid;

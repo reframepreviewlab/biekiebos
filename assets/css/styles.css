@@ -1504,12 +1504,12 @@ html.bb-lb-lock, html.bb-lb-lock body{
 
 /* Optional: keep logo sizing consistent */
 .brand img {
-  height: 40px; /* adjust if needed */
+  height: 24px; /* adjust if needed */
   width: auto;
   display: block;
 }
 .footer-brand img {
-  height: 34px; /* adjust if needed */
+  height: 18px; /* adjust if needed */
   width: auto;
   display: block;
 }

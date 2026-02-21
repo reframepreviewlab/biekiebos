@@ -467,39 +467,34 @@ p { color: var(--bb-taupe); }
 }
 
 /* ---- GALLERY GRID ---- */
+/* Gallery: dense packing to reduce gaps */
 .gallery-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  grid-auto-flow: dense; /* key: fills holes */
+  grid-auto-rows: 180px; /* adjust 160–220 to taste */
 }
 
-.gallery-grid .gallery-item{
+/* Base tile */
+.gallery-item{
   border-radius: 18px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  background: #eee;
 }
 
-.gallery-grid .gallery-item img{
+/* Image fill */
+.gallery-item img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Make first tile feature */
-.gallery-grid .gallery-item:first-child{
-  grid-column: span 2;
-  aspect-ratio: 16 / 9;
-}
+/* Big tiles */
+.gallery-item.tall{ grid-row: span 2; }
+.gallery-item.wide{ grid-column: span 2; }
 
-@media (max-width: 900px){
-  .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gallery-grid .gallery-item:first-child{ grid-column: span 2; }
-}
-@media (max-width: 560px){
-  .gallery-grid{ grid-template-columns: 1fr; }
-  .gallery-grid .gallery-item:first-child{ grid-column: auto; }
-}
 /* ---- HOW IT WORKS ---- */
 .steps-row {
   display: grid;

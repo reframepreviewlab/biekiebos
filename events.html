@@ -156,34 +156,57 @@
       <div class="section-header text-center">
         <span class="section-label">Get in Touch</span>
         <h2 id="form-heading">Party Enquiry Form</h2>
-        <p>Fill in your details and we'll reach out to discuss your event. Prefer to call? Reach Andre directly on <a href="tel:+27832680984" style="color:var(--bb-taupe); font-weight:700;">083 268 0984</a>.</p>
+        <p>
+          Fill in your details and we'll reach out to discuss your event.
+          Prefer to call? Reach Andre directly on
+          <a href="tel:+27832680984" style="color:var(--bb-taupe); font-weight:700;">
+            083 268 0984
+          </a>.
+        </p>
       </div>
+
       <div class="enquiry-form">
-        <form id="partyEnquiryForm" novalidate>
+        <form id="partyEnquiryForm"
+              action="https://formspree.io/f/xwvnrvky"
+              method="POST">
+
+          <input type="hidden" name="_subject" value="New Party Enquiry - Biekie Bos">
+
           <div class="form-grid">
+
             <div class="form-group">
               <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" placeholder="e.g. Sarah Botha" required />
+              <input type="text" id="name" name="name" placeholder="e.g. Sarah Botha" required>
             </div>
+
             <div class="form-group">
               <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="e.g. 083 000 0000" required />
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 083 000 0000" required>
             </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="e.g. sarah@email.com" required>
+            </div>
+
             <div class="form-group">
               <label for="date">Preferred Date</label>
-              <input type="date" id="date" name="date" />
+              <input type="date" id="date" name="preferred_date">
             </div>
+
             <div class="form-group">
               <label for="kids">Number of Kids</label>
-              <input type="number" id="kids" name="kids" placeholder="e.g. 15" min="0" />
+              <input type="number" id="kids" name="number_of_kids" placeholder="e.g. 15" min="0">
             </div>
+
             <div class="form-group">
               <label for="adults">Number of Adults</label>
-              <input type="number" id="adults" name="adults" placeholder="e.g. 10" min="0" />
+              <input type="number" id="adults" name="number_of_adults" placeholder="e.g. 10" min="0">
             </div>
+
             <div class="form-group">
               <label for="event-type">Type of Event</label>
-              <select id="event-type" name="event-type">
+              <select id="event-type" name="event_type">
                 <option value="">Select event type…</option>
                 <option>Children's Birthday Party</option>
                 <option>Adult Birthday Party</option>
@@ -192,18 +215,76 @@
                 <option>Other</option>
               </select>
             </div>
+
             <div class="form-group form-full">
               <label for="notes">Additional Notes</label>
-              <textarea id="notes" name="notes" placeholder="Any specific requirements, theme ideas or questions…"></textarea>
+              <textarea id="notes" name="additional_notes"
+                        placeholder="Any specific requirements, theme ideas or questions…"></textarea>
             </div>
+
           </div>
-          <button type="submit" class="btn btn-primary" style="margin-top:1.25rem; width:100%; justify-content:center;">Send Party Enquiry</button>
-          <p class="form-note">By submitting this form you consent to Biekie Bos contacting you about your enquiry. This form will open your email client with the details pre-filled. Alternatively, call Andre directly on <a href="tel:+27832680984">083 268 0984</a>.</p>
+
+          <button type="submit"
+                  class="btn btn-primary"
+                  style="margin-top:1.25rem; width:100%; justify-content:center;">
+            Send Party Enquiry
+          </button>
+
+          <p id="partyFormStatus"
+             class="form-note"
+             style="display:none; margin-top:1rem;"></p>
+
+          <p class="form-note">
+            By submitting this form you consent to Biekie Bos contacting you about your enquiry.
+            Prefer to call Andre directly on
+            <a href="tel:+27832680984">083 268 0984</a>.
+          </p>
+
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("partyEnquiryForm");
+  const status = document.getElementById("partyFormStatus");
+  const button = form.querySelector("button[type='submit']");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        status.style.display = "block";
+        status.textContent = "✅ Thank you! Your enquiry has been sent. We'll contact you shortly.";
+        form.reset();
+      } else {
+        status.style.display = "block";
+        status.textContent = "⚠️ Something went wrong. Please call Andre on 083 268 0984.";
+      }
+    } catch (error) {
+      status.style.display = "block";
+      status.textContent = "⚠️ Network error. Please try again or call Andre directly.";
+    }
+
+    button.disabled = false;
+    button.textContent = "Send Party Enquiry";
+  });
+
+});
+</script>
 
 <!-- ===== FAQ ===== -->
 <section class="section" aria-labelledby="faq-heading">

@@ -212,7 +212,7 @@ p { color: var(--bb-taupe); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../img/hero-bg.jpg');
+  background-image: url('../img/hero-entrance.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.3;

@@ -1356,12 +1356,23 @@ html.bb-lb-lock, html.bb-lb-lock body{
   box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
 
-/* 7) IMPORTANT: prevent old custom flipbook styles from hijacking the PageFlip library */
-.flipbook,
-.fb-page,
-.fb-face,
-.fb-back,
-.fb-clickzones,
-.fb-zone{
-  all: unset;
+/* ===== MENU PAGE (PageFlip) — FIX ===== */
+.menu-flip-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu-flip{
+  width: 100%;
+  height: min(78vh, 860px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--bb-white);
+  border: 1px solid var(--bb-sand);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.08);
+}
+
+/* If PageFlip injects its own canvas/DOM, make sure it stays inside */
+.menu-flip *{
+  max-width: 100%;
 }

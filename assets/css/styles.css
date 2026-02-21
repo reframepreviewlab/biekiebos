@@ -866,6 +866,112 @@ html.bb-lb-lock, html.bb-lb-lock body{
 .menu-fallback { display: none; padding: 2rem; text-align: center; }
 .menu-fallback img { max-width: 100%; border-radius: var(--radius-md); margin: 0 auto; }
 
+/* ===== MENU FLIPBOOK ===== */
+.menu-actions{
+  text-align:center;
+  margin-bottom: 1.75rem;
+}
+
+.flipbook-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.flipbook-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.flipbook-status{
+  font-weight: 700;
+  color: var(--bb-cocoa);
+}
+
+.flipbook{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bb-cream);
+  border: 1px solid var(--bb-sand);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.08);
+  perspective: 1400px;
+  outline: none;
+}
+
+/* Each page */
+.fb-page{
+  position:absolute;
+  inset:0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 650ms cubic-bezier(.2,.85,.2,1);
+  border-radius: 24px;
+  overflow:hidden;
+}
+
+/* Front face (image) */
+.fb-face{
+  position:absolute;
+  inset:0;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Back face (same image mirrored slightly darker for realism) */
+.fb-back{
+  transform: rotateY(180deg);
+  filter: brightness(0.94);
+}
+
+/* Flipped state */
+.fb-page.is-flipped{
+  transform: rotateY(-180deg);
+}
+
+/* Click zones */
+.fb-clickzones{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 50;
+}
+.fb-zone{
+  cursor: pointer;
+}
+.fb-zone.right{ cursor: e-resize; }
+.fb-zone.left{ cursor: w-resize; }
+
+.flipbook-hint{
+  text-align:center;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 12px;
+}
+
+.menu-pdf-fallback{
+  margin-top: 22px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--bb-sand);
+}
+
+@media (max-width: 720px){
+  .flipbook-toolbar{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .flipbook{
+    aspect-ratio: 3 / 4;
+  }
+}
+
 /* ---- ABOUT PAGE ---- */
 .about-hero {
   background: linear-gradient(135deg, var(--bb-bark), var(--bb-cocoa));

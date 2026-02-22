@@ -71,13 +71,6 @@ ul { list-style: none; }
   display:block;
 }
 
-/* Footer logo slightly smaller */
-.site-footer .footer-logo img{
-  height:34px;   /* smaller logo */
-  width:auto;
-  display:block;
-}
-
 /* ---- TYPOGRAPHY ---- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -1196,6 +1189,13 @@ html.bb-lb-lock, html.bb-lb-lock body{
   transition: background var(--transition), color var(--transition);
 }
 .social-link:hover { background: var(--bb-taupe); color: var(--bb-white); }
+
+/* Footer logo slightly smaller */
+.site-footer .footer-logo img{
+  height:34px;   /* smaller logo */
+  width:auto;
+  display:block;
+}
 
 /* ---- RATING BADGE ---- */
 .rating-badge {

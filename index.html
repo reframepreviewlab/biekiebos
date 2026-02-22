@@ -41,10 +41,12 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header" role="banner">
   <div class="container nav-inner">
-<a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
-  <img src="assets/img/logo.png" alt="Biekie Bos Logo">
-</a>
+    <!-- FIXED: consistent logo wrapper + no broken closing tags -->
+    <a class="brand" href="index.html" aria-label="Biekie Bos Home">
+      <img src="assets/img/logo.png" alt="Biekie Bos">
+      <span class="brand-text">Biekie Bos</span>
     </a>
+
     <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -165,10 +167,10 @@
   <div class="container">
     <div class="split">
       <div class="split-img">
-  <img src="assets/img/biekie-fun.jpg"
-       alt="Children enjoying the play area at Biekie Bos"
-       loading="lazy">
-</div>
+        <img src="assets/img/biekie-fun.jpg"
+             alt="Children enjoying the play area at Biekie Bos"
+             loading="lazy">
+      </div>
       <div class="split-content">
         <span class="section-label">Kids &amp; Family Fun</span>
         <h2 id="kids-heading">A Place Where Kids Can Really Be Kids</h2>
@@ -205,9 +207,10 @@
         <a href="menu.html" class="btn btn-primary">View Our Menu</a>
       </div>
       <div class="split-img">
-  <img src="assets/img/biekie-breakfast.jpg"
-       alt="Delicious food served at Biekie Bos restaurant"
-       loading="lazy">
+        <img src="assets/img/biekie-breakfast.jpg"
+             alt="Delicious food served at Biekie Bos restaurant"
+             loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -253,11 +256,11 @@
             </div>
           </div>
           <div class="review-stars" aria-label="5 stars">
-            <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-            <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-            <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-            <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-            <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24" fill="#816E64" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24" fill="#816E64" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24" fill="#816E64" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24" fill="#816E64" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24" fill="#816E64" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
           </div>
           <p class="review-text">
             <span class="review-preview">"Extremely friendly service. Huge place with lots of space for kids to play…"</span>
@@ -433,7 +436,7 @@
               <span>5 years ago</span>
             </div>
           </div>
-          <div class="review-stars" aria-label="5 stars">
+          <div class="review-stars" aria-label="4 stars">
             <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
             <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
             <svg viewBox="0 0 24 24" fill="#816E64"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
@@ -513,13 +516,10 @@
     </div>
 
     <div class="gallery-grid">
-
-      <!-- Left tall (music) -->
       <div class="gallery-item span-2r">
         <img src="assets/img/gallery-01.jpg" alt="Live music at Biekie Bos" loading="lazy">
       </div>
 
-      <!-- Top row right -->
       <div class="gallery-item">
         <img src="assets/img/gallery-02.jpg" alt="Kids play area at Biekie Bos" loading="lazy">
       </div>
@@ -528,7 +528,6 @@
         <img src="assets/img/gallery-03.jpg" alt="Water slide at Biekie Bos" loading="lazy">
       </div>
 
-      <!-- Second row right -->
       <div class="gallery-item">
         <img src="assets/img/gallery-04.jpg" alt="Family fun day at Biekie Bos" loading="lazy">
       </div>
@@ -537,17 +536,14 @@
         <img src="assets/img/gallery-06.jpg" alt="Splash slide at Biekie Bos" loading="lazy">
       </div>
 
-      <!-- Middle wide strip -->
       <div class="gallery-item span-2c">
         <img src="assets/img/gallery-07.jpg" alt="Kids rides at Biekie Bos" loading="lazy">
       </div>
 
-      <!-- Bottom right large tile (Zebra) -->
       <div class="gallery-item span-2r">
         <img src="assets/img/gallery-05.jpg" alt="Zebra at Biekie Bos" loading="lazy">
       </div>
 
-      <!-- Bottom row small tiles -->
       <div class="gallery-item">
         <img src="assets/img/gallery-08.jpg" alt="Indoor play area at Biekie Bos" loading="lazy">
       </div>
@@ -555,16 +551,15 @@
       <div class="gallery-item">
         <img src="assets/img/gallery-09.jpg" alt="Garden chess at Biekie Bos" loading="lazy">
       </div>
-
     </div>
 
-    <!-- ✅ View Full Gallery Button -->
     <div class="text-center" style="margin-top: 2rem;">
       <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
     </div>
 
   </div>
 </section>
+
 <!-- ===== FINAL CTA ===== -->
 <section class="section" aria-labelledby="cta-heading">
   <div class="container">
@@ -587,9 +582,12 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" aria-label="Biekie Bos Home">
-          <img src="assets/img/logo-white.png" alt="Biekie Bos" onerror="this.style.display='Biekie Bos Logo'"
+        <!-- FIXED: valid HTML + consistent footer logo wrapper -->
+        <a class="footer-brand-link" href="index.html" aria-label="Biekie Bos Home">
+          <img src="assets/img/logo-white.png" alt="Biekie Bos">
+          <span class="footer-brand-text">Biekie Bos</span>
         </a>
+
         <p>A relaxed farm-style family destination in Meyerton, Vaal Triangle. Good food, open space, kids entertainment and celebrations done right.</p>
         <div class="social-links" style="margin-top:1.25rem;">
           <a href="https://www.facebook.com/BiekieBos/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Biekie Bos on Facebook">f</a>
@@ -633,7 +631,7 @@
 
 <!-- ===== FLOATING CALL BUTTON ===== -->
 <a href="tel:+27163631602" class="float-call" aria-label="Call Biekie Bos restaurant">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 03.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
   Call Restaurant
 </a>
 
